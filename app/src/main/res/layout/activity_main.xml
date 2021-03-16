@@ -34,4 +34,10 @@
         android:text="Save to Firebase"
         android:onClick="saveToFirebase"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Display Data"
+        android:onClick="DisplayData"/>
+
 </LinearLayout>

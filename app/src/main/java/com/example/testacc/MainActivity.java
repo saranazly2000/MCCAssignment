@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
@@ -31,10 +33,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void saveToFirebase(View v){
-        progressDialog = new ProgressDialog(MainActivity.this);
-        progressDialog.show();
-        progressDialog.setContentView(R.layout.progress_dialog);
-        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         String userName=editTextUserName.getText().toString();
         String userAddress=editTextUserAddress.getText().toString();
         String userNumber=editTextUserNumber.getText().toString();
@@ -57,9 +55,18 @@ public class MainActivity extends AppCompatActivity {
                         Log.w("TAG", "Error adding document");
                     }
                 });
+        Toast.makeText(this,"saved",Toast.LENGTH_SHORT).show();
+
+
+    }
+
+    public void DisplayData(View v){
+        progressDialog = new ProgressDialog(MainActivity.this);
+        progressDialog.show();
+        progressDialog.setContentView(R.layout.progress_dialog);
+        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         Intent intent = new Intent(MainActivity.this, MainActivity2.class);
         startActivity(intent);
-
     }
 
     @Override
